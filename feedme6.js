@@ -1,10 +1,12 @@
+List = new Meteor.Collection('list');
+
 if (Meteor.isClient) {
   Meteor.startup(() => {
     $(".button-collapse").sideNav();
   });
 }
 
-  if (Meteor.isServer) {
+if (Meteor.isServer) {
   Meteor.startup(() => {
     console.log('Starting feedme6');
   });

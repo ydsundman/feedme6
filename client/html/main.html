@@ -26,23 +26,19 @@
 
 <template name="editShoppingList">
 	<div class="input-field">
-		<input autocorrect="off" autocapitalize="none" type="text" name="add" placeholder="add item"/> |
+		<input autocorrect="off" autocapitalize="none" type="text" name="add" placeholder="add item"/>
 	</div>
   <section class="listItems">
     <ul class="collection">
-    {{> editShoppingItem}}
+      {{#each list}}
+        {{> editShoppingItem}}
+      {{/each}}
     </ul>
   </section>
 </template>
 
 <template name="editShoppingItem">
   <li class="collection-item">
-    fake data
-  </li>
-  <li class="collection-item">
-    fake data
-  </li>
-  <li class="collection-item">
-    fake data
+    {{name}}
   </li>
 </template>
