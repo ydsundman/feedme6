@@ -12,6 +12,7 @@ if (Meteor.isClient) {
 
   Meteor.startup(() => {
     Session.set('page', Pages.SHOPPING);
+    $(".button-collapse").sideNav();
   });
 }
 

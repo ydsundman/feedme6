@@ -1,6 +1,9 @@
 Template.shopShoppingList.helpers({
   list() {
     return List.find({});
+  },
+  showCheckedItems(){
+    return Session.get('shouldShowCheckedItems');
   }
 });
 

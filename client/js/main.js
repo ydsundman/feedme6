@@ -1,9 +1,9 @@
 Template.nav.events({
-  'click #shop': (e) => {
+  'click .shop': (e) => {
     Session.set('page', Pages.SHOPPING);
     e.preventDefault();
   },
-  'click #edit': (e) => {
+  'click .edit': (e) => {
     Session.set('page', Pages.EDITING);
     e.preventDefault();
   }

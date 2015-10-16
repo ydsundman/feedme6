@@ -1,6 +1,18 @@
 <template name="shopShoppingList">
+  <section class="shoppingListMenu">
+    <div class="right-align lift-up">
+      <a class="btn-floating waves-effect light-blue waves-light ">
+        <i class="material-icons">
+          {{#if showCheckedItems}}
+          visibility_off
+          {{else}}
+          visibility
+          {{/if}}
+        </i>
+      </a>
+    </div>
+  </section>
   <section class="listItems">
-    <a class="btn-floating btn-small waves-effect light-blue"><i class="material-icons">visibility</i></a>
     <ul class="collection">
       {{#each list}}
       {{> shopShoppingItem}}
