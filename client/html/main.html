@@ -10,12 +10,14 @@
 </body>
 
 <template name="main">
-  {{#if editing}}
-  {{> editShoppingList}}
-  {{/if}}
-  {{#if shopping}}
-  {{> shopShoppingList}}
-  {{/if}}
+  <div class="container">
+    {{#if editing}}
+    {{> editShoppingList}}
+    {{/if}}
+    {{#if shopping}}
+    {{> shopShoppingList}}
+    {{/if}}
+  </div>
 </template>
 
 
