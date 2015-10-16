@@ -11,8 +11,10 @@
 
 <template name="shopShoppingItem">
   {{#if shouldShow}}
+    {{#HammerTouchArea gestureMap=templateGestures}}
     <li class="collection-item name">{{#if checked}}<i class="material-icons tiny">done</i>{{/if}}
       {{name}}
     </li>
+    {{/HammerTouchArea}}
   {{/if}}
 </template>

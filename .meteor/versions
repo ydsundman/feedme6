@@ -12,6 +12,7 @@ caching-compiler@1.0.0
 caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.0.6
+chriswessels:hammer@4.0.2
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.1
@@ -24,7 +25,6 @@ ejson@1.0.7
 es5-shim@4.1.13
 fastclick@1.0.7
 geojson-utils@1.0.4
-hammer:hammer@2.0.4_2
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5
