@@ -10,10 +10,10 @@
 
 <template name="main">
   {{#if editing}}
-    {{> editShoppingList}}
+  {{> editShoppingList}}
   {{/if}}
   {{#if shopping}}
-    <h1>Shopping</h1>
+  <h1>Shopping</h1>
   {{/if}}
 </template>
 
@@ -23,28 +23,10 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">FeedMe</a>
       <ul class="right" id="nav-mobile">
-          <li><a id="shop" href="#">Shop</a></li>
-          <li><a id="edit" href="#">Edit</a></li>
+        <li><a id="shop" href="#">Shop</a></li>
+        <li><a id="edit" href="#">Edit</a></li>
       </ul>
     </div>
   </nav>
 </template>
 
-<template name="editShoppingList">
-  <div class="input-field">
-    <input autocorrect="off" autocapitalize="none" type="text" name="add" placeholder="add item"/>
-  </div>
-  <section class="listItems">
-    <ul class="collection">
-      {{#each list}}
-      {{> editShoppingItem}}
-      {{/each}}
-    </ul>
-  </section>
-</template>
-
-<template name="editShoppingItem">
-  <li class="collection-item">
-    {{name}}
-  </li>
-</template>
