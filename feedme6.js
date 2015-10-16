@@ -2,7 +2,6 @@ List = new Meteor.Collection('list');
 
 if (Meteor.isClient) {
   Meteor.startup(() => {
-    $(".button-collapse").sideNav();
   });
 }
 
