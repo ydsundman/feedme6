@@ -6,6 +6,10 @@ Pages = {
 };
 
 if (Meteor.isClient) {
+  touchSupported = () => {
+    return 'ontouchstart' in window;
+  };
+
   Meteor.startup(() => {
     Session.set('page', Pages.SHOPPING);
   });
