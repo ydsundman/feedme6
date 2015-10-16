@@ -4,6 +4,13 @@ Template.shopShoppingList.helpers({
   },
   showCheckedItems(){
     return Session.get('shouldShowCheckedItems');
+  },
+  totalNumItems(){
+    return List.find({}).fetch().length;
+  },
+  notYetCheckedOff(){
+    var query = {$or: [{checked: {$exists: false}}, {checked: false}]};
+    return List.find(query).fetch().length;
   }
 });
 
