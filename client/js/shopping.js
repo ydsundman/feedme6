@@ -4,9 +4,20 @@ Template.shopShoppingList.helpers({
   }
 });
 
+Template.shopShoppingList.events({
+    'click a': function (e, t) {
+      Session.set('shouldShowCheckedItems', !Session.get('shouldShowCheckedItems'));
+      e.preventDefault();
+    }
+  }
+);
+
 Template.shopShoppingItem.helpers({
   checked() {
     return !!this.checked;
+  },
+  shouldShow(){
+    return !this.checked || Session.get('shouldShowCheckedItems')
   }
 });
 
