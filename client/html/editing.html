@@ -3,16 +3,16 @@
     <input autocorrect="off" autocapitalize="none" type="text" name="add" placeholder="add item"/>
   </div>
   <section class="listItems">
-    <ul class="collection">
+    <div class="collection">
       {{#each list}}
       {{> editShoppingItem}}
       {{/each}}
-    </ul>
+    </div>
   </section>
 </template>
 
 <template name="editShoppingItem">
-  <li class="collection-item">
+  <a href="#!" class="name collection-item {{#if included}}active{{/if}}">
     {{name}}
-  </li>
+  </a>
 </template>

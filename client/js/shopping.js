@@ -1,21 +1,23 @@
 Template.shopShoppingList.helpers({
   list() {
-    return List.find({});
+    var query = {included: true};
+    return List.find(query);
   },
   showCheckedItems(){
     return Session.get('shouldShowCheckedItems');
   },
   totalNumItems(){
-    return List.find({}).fetch().length;
+    var query = {included: true};
+    return List.find(query).fetch().length;
   },
   notYetCheckedOff(){
-    var query = {$or: [{checked: {$exists: false}}, {checked: false}]};
+    var query = {included: true, $or: [{checked: {$exists: false}}, {checked: false}]};
     return List.find(query).fetch().length;
   }
 });
 
 Template.shopShoppingList.events({
-    'click a': function (e) {
+    'click #hideShow': function (e) {
       Session.set('shouldShowCheckedItems', !Session.get('shouldShowCheckedItems'));
       e.preventDefault();
     }

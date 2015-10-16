@@ -1,7 +1,7 @@
 <template name="shopShoppingList">
   <section class="shoppingListMenu">
     <div class="right-align">{{notYetCheckedOff}}/{{totalNumItems}}
-      <a class="btn waves-effect light-blue waves-light">
+      <a id="hideShow" class="btn waves-effect light-blue waves-light">
         <i class="material-icons">
           {{#if showCheckedItems}}
           visibility_off
@@ -23,7 +23,7 @@
 
 <template name="shopShoppingItem">
   {{#if shouldShow}}
-    <li class="collection-item name">
+    <li  class="collection-item name">
       {{#HammerTouchArea gestureMap=templateGestures}}
       {{#if checked}}<i class="material-icons tiny">done</i>{{/if}}
       {{name}}
