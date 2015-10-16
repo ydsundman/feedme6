@@ -22,6 +22,10 @@ Template.shopShoppingList.events({
   }
 );
 
+function toggleChecked(item) {
+  List.update({_id: item._id}, {$set: {checked: item.checked ? false : true}});
+}
+
 Template.shopShoppingItem.helpers({
   checked() {
     return !!this.checked;
@@ -31,20 +35,21 @@ Template.shopShoppingItem.helpers({
   },
   templateGestures: {
     'panend ul li': (e, t) => {
-      const right = e.direction === Hammer.DIRECTION_RIGHT;
-      if (right) {
-        const item = t.data;
-        List.update({_id: item._id}, {$set: {checked: item.checked ? false : true}});
+      const leftOrRight = e.direction === Hammer.DIRECTION_RIGHT || e.direction === Hammer.DIRECTION_LEFT;
+      if (leftOrRight) {
+        toggleChecked(t.data);
       }
       e.preventDefault();
     }
+  },
+  hammerInitOptions: {
   }
 });
 
 Template.shopShoppingItem.events({
   'click .name': function (e, t) {
     if (!touchSupported()) {
-      List.update({_id: t.data._id}, {$set: {checked: t.data.checked ? false : true}});
+      toggleChecked(t.data);
       e.preventDefault();
     }
   }
