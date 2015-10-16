@@ -1,33 +1,32 @@
-
 <head>
   <title>feedme6</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-  {{> nav}}
-  {{> editShoppingList}}
+{{> nav}}
+{{> editShoppingList}}
 </body>
 
 <template name="nav">
-	<nav>
-		<div class="nav-wrapper">
-			<a href="#" class="brand-logo">FeedMe</a>
-			<ul class="right" id="nav-mobile">
-				<li><a href="">Edit</a></li>
-			</ul>
-		</div>
-	</nav>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">FeedMe</a>
+      <ul class="right" id="nav-mobile">
+        <li><a href="">Edit</a></li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <template name="editShoppingList">
-	<div class="input-field">
-		<input autocorrect="off" autocapitalize="none" type="text" name="add" placeholder="add item"/>
-	</div>
+  <div class="input-field">
+    <input autocorrect="off" autocapitalize="none" type="text" name="add" placeholder="add item"/>
+  </div>
   <section class="listItems">
     <ul class="collection">
       {{#each list}}
-        {{> editShoppingItem}}
+      {{> editShoppingItem}}
       {{/each}}
     </ul>
   </section>
