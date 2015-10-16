@@ -1,0 +1,15 @@
+<template name="shopShoppingList">
+  <section class="listItems">
+    <ul class="collection">
+      {{#each list}}
+      {{> shopShoppingItem}}
+      {{/each}}
+    </ul>
+  </section>
+</template>
+
+<template name="shopShoppingItem">
+  <li class="collection-item">
+    {{name}}
+  </li>
+</template>
