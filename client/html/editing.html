@@ -13,7 +13,15 @@
 </template>
 
 <template name="editShoppingItem">
-  <a href="#!" class="name collection-item {{#if included}}active{{/if}}">
-    {{name}}
+  <a class="name collection-item {{#if included}}active{{/if}}">
+    <div id="view-item-{{_id}}">
+      {{name}} - {{extra}}
+       <input class="inline-input hide" autocorrect="off" autocapitalize="none" type="text" name="extra" value="{{extra}}"/>
+      <a href="#!" class="secondary-content edit-item" data-modal="#item-extra-{{_id}}">
+        <i class="material-icons light-blue-text {{#if included}}text-lighten-5{{/if}}">edit</i> </a>
+    </div>
+    <div id="edit-item-{{_id}}">
+
+    </div>
   </a>
 </template>
