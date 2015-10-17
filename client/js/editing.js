@@ -3,8 +3,7 @@ Template.editShoppingList.events({
     if (e.keyCode === 13) {
       var input = t.find('input[type=text]');
       if (input.value) {
-        var o = {name: input.value};
-        List.insert(o);
+        Materialize.toast('Couldn\'t find ' + input.value, 3000);
         input.value = '';
       }
     }
