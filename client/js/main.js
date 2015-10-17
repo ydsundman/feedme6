@@ -1,3 +1,9 @@
+Pages = {
+  SHOPPING: 'SHOPPING',
+  EDITING: 'EDITING',
+  SETTINGS: 'SETTINGS'
+};
+
 Template.nav.events({
   'click .shop': (e) => {
     Session.set('page', Pages.SHOPPING);
@@ -5,6 +11,10 @@ Template.nav.events({
   },
   'click .edit': (e) => {
     Session.set('page', Pages.EDITING);
+    e.preventDefault();
+  },
+  'click .settings': (e) => {
+    Session.set('page', Pages.SETTINGS);
     e.preventDefault();
   }
 });
@@ -15,5 +25,8 @@ Template.main.helpers({
   },
   shopping() {
     return Session.get('page') === Pages.SHOPPING;
+  },
+  settings() {
+    return Session.get('page') === Pages.SETTINGS;
   }
 });

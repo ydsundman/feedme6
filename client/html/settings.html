@@ -1,0 +1,20 @@
+<template name="settingsShoppingList">
+  <div class="input-field">
+    <input id="new-item" autocorrect="off" autocapitalize="none" type="text"/>
+    <label for="new-item">New item</label>
+  </div>
+  <section class="listItems">
+    <div class="collection">
+      {{#each list}}
+      {{> settingsShoppingItem}}
+      {{/each}}
+    </div>
+  </section>
+</template>
+
+<template name="settingsShoppingItem">
+  <a href="#!" class="name collection-item">
+    {{name}}
+  </a>
+</template>
+

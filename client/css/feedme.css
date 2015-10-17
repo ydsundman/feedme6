@@ -6,3 +6,13 @@
 .collection a.collection-item {
     color: #0091ea;
 }
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #01579b;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #01579b;
+    box-shadow: 0 1px 0 0 #0091ea;
+}

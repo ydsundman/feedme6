@@ -1,9 +1,5 @@
 List = new Meteor.Collection('list');
 
-Pages = {
-  SHOPPING: 'SHOPPING',
-  EDITING: 'EDITING'
-};
 
 if (Meteor.isClient) {
   touchSupported = () => {

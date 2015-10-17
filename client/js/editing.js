@@ -11,6 +11,37 @@ Template.editShoppingList.events({
   }
 });
 
+Template.editShoppingList.rendered = function() {
+  $('input[name=add]').autocomplete({
+    autoFocus: true,
+    source: function(request, response) {
+      var data = (List.find({}, {sort: {name: 1}})).fetch().map(function(item) {
+        return {label: item.name, _id: item._id};
+      });
+      var results = $.ui.autocomplete.filter(data, request.term);
+      results = results.sort(function(a, b) {
+        return a.label.toLowerCase().indexOf(request.term.toLowerCase()) - b.label.toLowerCase().indexOf(request.term.toLowerCase());
+      });
+      response(results);
+    },
+    select: function(event, ui) {
+      event.preventDefault();
+      List.update({_id: ui.item._id}, {$set: {included: true}});
+      this.value = '';
+      this.focus();
+    }
+  });
+
+  var input = this.find('input[name=name]');
+  if (input) {
+    input.focus();
+  }
+  var inputExtra = this.find('input[name=extra]');
+  if (inputExtra) {
+    inputExtra.focus();
+  }
+};
+
 Template.editShoppingList.helpers({
   list() {
     return List.find({});
@@ -23,3 +54,5 @@ Template.editShoppingItem.events({
     e.preventDefault();
   }
 });
+
+

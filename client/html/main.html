@@ -17,6 +17,9 @@
     {{#if shopping}}
     {{> shopShoppingList}}
     {{/if}}
+    {{#if settings}}
+    {{> settingsShoppingList}}
+    {{/if}}
   </div>
 </template>
 
@@ -27,14 +30,18 @@
       <a href="#!" class="brand-logo center">FeedMe</a>
       <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a class="shop" href="#">Shop</a></li>
-        <li><a class="edit" href="#">Edit</a></li>
+        {{> navContent}}
       </ul>
       <ul class="side-nav" id="mobile-menu">
-        <li><a class="shop" href="#">Shop</a></li>
-        <li><a class="edit" href="#">Edit</a></li>
+        {{> navContent}}
       </ul>
     </div>
   </nav>
+</template>
+
+<template name="navContent">
+  <li><a class="shop" href="#">Shop</a></li>
+  <li><a class="edit" href="#">Edit</a></li>
+  <li><a class="settings" href="#">Settings</a></li>
 </template>
 
