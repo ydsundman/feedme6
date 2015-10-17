@@ -52,7 +52,7 @@ Template.shopShoppingItem.events({
   'click .name': function (e, t) {
     if (!touchSupported()) {
       toggleChecked(t.data);
-      e.preventDefault();
     }
+    e.preventDefault();
   }
 });
