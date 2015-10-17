@@ -52,6 +52,17 @@ Template.editShoppingItem.events({
   'click .name': function (e, t) {
     List.update({_id: t.data._id}, {$set: {included: t.data.included ? false : true}});
     e.preventDefault();
+  },
+  'click .edit-item': function (e, t) {
+    var inputElement = $(e.currentTarget).siblings('input');
+    if (inputElement.hasClass('hide')) {
+      inputElement.removeClass('hide');
+      inputElement.focus();
+    } else {
+      inputElement.addClass('hide');
+    }
+    e.stopPropagation();
+    e.preventDefault();
   }
 });
 
