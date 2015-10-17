@@ -25,7 +25,7 @@ Template.bodyTemplate.helpers({
   }
 });
 
-Template.main.helpers({
+const mainAndNavHelpers = {
   editing() {
     return Session.get('page') === Pages.EDITING;
   },
@@ -35,4 +35,7 @@ Template.main.helpers({
   settings() {
     return Session.get('page') === Pages.SETTINGS;
   }
-});
+};
+
+Template.main.helpers(mainAndNavHelpers);
+Template.navContent.helpers(mainAndNavHelpers);

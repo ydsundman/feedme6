@@ -33,7 +33,7 @@
 
 <template name="nav">
   <nav>
-    <div class="nav-wrapper light-blue darken-4">
+    <div class="nav-wrapper light-blue darken-3">
       <a href="#!" class="brand-logo center">FeedMe</a>
       <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-desktop" class="left hide-on-med-and-down">
@@ -47,9 +47,9 @@
 </template>
 
 <template name="navContent">
-  <li><a class="shop" href="#">Shop</a></li>
-  <li><a class="edit" href="#">Edit</a></li>
-  <li><a class="settings" href="#">Settings</a></li>
+  <li class="{{#if shopping}}active{{/if}}"><a class="shop" href="#">Shop</a></li>
+  <li class="{{#if editing}}active{{/if}}"><a class="edit" href="#">Edit</a></li>
+  <li class="{{#if settings}}active{{/if}}"><a class="settings" href="#">Settings</a></li>
   <li>{{> atNavButton }}</li>
 </template>
 
