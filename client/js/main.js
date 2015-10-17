@@ -36,3 +36,7 @@ Template.main.helpers({
     return Session.get('page') === Pages.SETTINGS;
   }
 });
+
+Template.nav.rendered = () => {
+  $(".button-collapse").sideNav();
+};
