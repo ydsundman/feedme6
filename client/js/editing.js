@@ -53,16 +53,42 @@ Template.editShoppingItem.events({
     List.update({_id: t.data._id}, {$set: {included: t.data.included ? false : true}});
     e.preventDefault();
   },
-  'click .edit-item': function (e, t) {
-    var inputElement = $(e.currentTarget).siblings('input');
-    if (inputElement.hasClass('hide')) {
-      inputElement.removeClass('hide');
-      inputElement.focus();
-    } else {
-      inputElement.addClass('hide');
-    }
+
+  'click input[name=extra]': function (e) {
     e.stopPropagation();
     e.preventDefault();
+  },
+
+  'click .edit-item': function (e, t) {
+    const span = e.currentTarget.parentNode.querySelector('span');
+    const input = e.currentTarget.parentNode.querySelector('input');
+
+    const inputHidden = input.classList.contains('hide');
+    input.classList.toggle('hide');
+    span.classList.toggle('hide');
+    if (inputHidden) {
+      input.value = t.data.extra;
+      input.focus();
+    }
+
+    e.stopPropagation();
+    e.preventDefault();
+  },
+
+  'keypress input[name=extra]': function(e) {
+    if (e.keyCode === 13) {
+      e.currentTarget.blur();
+    }
+  },
+
+  'blur input[name=extra]': function(e, t) {
+    List.update({_id: t.data._id}, {$set: {extra: e.currentTarget.value}});
+
+    const span = e.currentTarget.parentNode.querySelector('span');
+    const input = e.currentTarget.parentNode.querySelector('input');
+    input.value = '';
+    input.classList.add('hide');
+    span.classList.remove('hide');
   }
 });
 
