@@ -5,9 +5,16 @@
 </head>
 
 <body>
-{{> nav}}
-{{> main}}
+{{> bodyTemplate}}
 </body>
+
+<template name="bodyTemplate">
+  {{> atForm}}
+  {{#if isLoggedIn}}
+    {{> nav}}
+    {{> main}}
+  {{/if}}
+</template>
 
 <template name="main">
   <div class="card-panel">
@@ -29,8 +36,9 @@
     <div class="nav-wrapper light-blue darken-4">
       <a href="#!" class="brand-logo center">FeedMe</a>
       <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <ul id="nav-desktop" class="left hide-on-med-and-down">
         {{> navContent}}
+        <li>{{> atNavButton }}</li>
       </ul>
       <ul class="side-nav" id="mobile-menu">
         {{> navContent}}

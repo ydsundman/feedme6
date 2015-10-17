@@ -19,6 +19,12 @@ Template.nav.events({
   }
 });
 
+Template.bodyTemplate.helpers({
+  isLoggedIn() {
+    return !!Meteor.userId();
+  }
+});
+
 Template.main.helpers({
   editing() {
     return Session.get('page') === Pages.EDITING;
