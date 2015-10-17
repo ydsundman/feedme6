@@ -3,8 +3,7 @@ Template.settingsShoppingList.events({
     if (e.keyCode === 13) {
       var input = t.find('input[type=text]');
       if (input.value) {
-        var o = {name: input.value};
-        List.insert(o);
+        List.insert({name: input.value, owner: Meteor.userId()});
         input.value = '';
       }
     }
