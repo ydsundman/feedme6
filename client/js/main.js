@@ -39,3 +39,7 @@ const mainAndNavHelpers = {
 
 Template.main.helpers(mainAndNavHelpers);
 Template.navContent.helpers(mainAndNavHelpers);
+
+Template.nav.rendered = () => {
+  $(".button-collapse").sideNav();
+};
