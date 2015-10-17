@@ -1,20 +1,15 @@
-Pages = {
-  SHOPPING: 'SHOPPING',
-  EDITING: 'EDITING',
-  SETTINGS: 'SETTINGS'
-};
 
 Template.nav.events({
   'click .shop': (e) => {
-    Session.set('page', Pages.SHOPPING);
+    Session.set('page', "SHOPPING");
     e.preventDefault();
   },
   'click .edit': (e) => {
-    Session.set('page', Pages.EDITING);
+    Session.set('page', "EDITING");
     e.preventDefault();
   },
   'click .settings': (e) => {
-    Session.set('page', Pages.SETTINGS);
+    Session.set('page', "SETTINGS");
     e.preventDefault();
   }
 });
@@ -26,14 +21,8 @@ Template.bodyTemplate.helpers({
 });
 
 const mainAndNavHelpers = {
-  editing() {
-    return Session.get('page') === Pages.EDITING;
-  },
-  shopping() {
-    return Session.get('page') === Pages.SHOPPING;
-  },
-  settings() {
-    return Session.get('page') === Pages.SETTINGS;
+  pageIs(page) {
+    return Session.get('page') === page;
   }
 };
 

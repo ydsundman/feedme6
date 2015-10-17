@@ -27,7 +27,7 @@ if (Meteor.isClient) {
   };
 
   Meteor.startup(() => {
-    Session.set('page', Pages.SHOPPING);
+    Session.set('page', "SHOPPING");
     Meteor.subscribe('list');
   });
 }
