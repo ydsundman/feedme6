@@ -1,15 +1,10 @@
 <template name="shopShoppingList">
   <section class="shoppingListMenu">
     <div class="right-align">{{notYetCheckedOff}}/{{totalNumItems}}
-      <a id="hideShow" class="btn waves-effect light-blue waves-light">
-        <i class="material-icons">
-          {{#if showCheckedItems}}
-          visibility_off
-          {{else}}
-          visibility
-          {{/if}}
-        </i>
-      </a>
+      <input class="with-gap" name="show-hide" type="radio" id="show" checked="" />
+      <label for="show">Show</label>
+      <input class="with-gap" name="show-hide" type="radio" id="hide" checked="checked"/>
+      <label for="hide">Hide</label>
     </div>
   </section>
   <section class="listItems">
