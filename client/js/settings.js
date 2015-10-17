@@ -10,8 +10,20 @@ Template.settingsShoppingList.events({
     }
   }
 });
+
 Template.settingsShoppingList.helpers({
   list() {
     return List.find({});
+  }
+});
+
+Template.settingsShoppingItem.events({
+  'click .confirm-delete-item': function (e, t) {
+    List.remove({_id: t.data._id});
+    e.preventDefault();
+    e.stopPropagation();
+  },
+  'click .delete-item': function (e, t) {
+    $($(e.currentTarget).attr('data-modal')).openModal()
   }
 });
