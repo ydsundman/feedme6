@@ -24,7 +24,7 @@
     <li  class="collection-item name">
       {{#HammerTouchArea gestureMap=templateGestures}}
       {{#if checked}}<i class="material-icons tiny">done</i>{{/if}}
-      {{name}}
+      {{name}}{{#if extra}} - {{extra}}{{/if}}
       {{/HammerTouchArea}}
     </li>
   {{/if}}
