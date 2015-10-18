@@ -16,7 +16,8 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-materialize:materialize@=0.97.0
 chriswessels:hammer
 useraccounts:materialize
 accounts-password
+fourseven:scss
+poetic:materialize-scss

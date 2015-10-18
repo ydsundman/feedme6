@@ -1,8 +1,8 @@
 <template name="settings">
-  <section class="card-panel">
+  <section>
   <div class="row">
     <div class="col s12">
-      <ul class="tabs red lighten-5">
+      <ul class="tabs">
         <li class="tab col s6"><a href="#items-tab">Items</a></li>
         <li class="tab col s6"><a class="active" href="#stores-tab">Stores</a></li>
       </ul>
@@ -35,7 +35,7 @@
   <a href="#" class="name collection-item">
     <div>
       {{name}}
-      <a class="secondary-content delete-item" data-modal="#confirm-delete-{{_id}}"><i class="material-icons light-blue-text">delete</i></a>
+      <a class="secondary-content delete-item" data-modal="#confirm-delete-{{_id}}"><i class="material-icons">delete</i></a>
       <div id="confirm-delete-{{_id}}" class="modal bottom-sheet">
         <div class="modal-content">
           <p>Permanently delete <strong>{{name}}</strong></p>
@@ -67,7 +67,7 @@
   <a href="#" class="name collection-item">
     <div>
       {{name}}
-        <a class="secondary-content delete-item" data-modal="#confirm-delete-store-{{_id}}"><i class="material-icons light-blue-text">delete</i></a>
+        <a class="secondary-content delete-item" data-modal="#confirm-delete-store-{{_id}}"><i class="material-icons">delete</i></a>
         <div id="confirm-delete-store-{{_id}}" class="modal bottom-sheet">
             <div class="modal-content">
                 <p>Permanently delete <strong>{{name}}</strong></p>
