@@ -18,7 +18,7 @@ Template.shopShoppingList.helpers({
 
 Template.shopShoppingList.events({
     'click input[name=show-hide]': function (e) {
-      Session.set('shouldShowCheckedItems', e.toElement.id === 'show');
+      Session.set('shouldShowCheckedItems', e.toElement.checked );
     }
   }
 );

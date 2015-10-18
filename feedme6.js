@@ -28,6 +28,7 @@ if (Meteor.isClient) {
 
   Meteor.startup(() => {
     Session.set('page', "SHOPPING");
+    Session.set('shouldShowCheckedItems', false);
     Meteor.subscribe('list');
   });
 }

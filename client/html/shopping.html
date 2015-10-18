@@ -1,11 +1,14 @@
 <template name="shopShoppingList">
-  <section class="shoppingListMenu">
-    <div class="right-align">{{notYetCheckedOff}}/{{totalNumItems}}
-      <input class="with-gap" name="show-hide" type="radio" id="show" checked="" />
-      <label for="show">Show</label>
-      <input class="with-gap" name="show-hide" type="radio" id="hide" checked="checked"/>
-      <label for="hide">Hide</label>
-    </div>
+  <section class="shoppingListMenu right-align">
+    <span class="left">{{notYetCheckedOff}}/{{totalNumItems}}</span>
+    <span class="switch">
+      <label>
+        Hide
+        <input type="checkbox" name="show-hide" checked="{{#if showCheckedItems}}true{{/if}}">
+        <span class="lever"></span>
+        Show
+      </label>
+    </span>
   </section>
   <section class="listItems">
     <ul class="collection">

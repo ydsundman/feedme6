@@ -1,4 +1,15 @@
 <template name="editShoppingList">
+  <div>
+    <a href="#" class="waves-effect waves-light btn right" name="clear-all">Clear</a>
+    <span class="switch">
+      <label>
+        All
+        <input type="checkbox" name="all-included" checked="">
+        <span class="lever"></span>
+        Included
+      </label>
+    </span>
+  </div>
   <div class="input-field">
     <input id="add_item" autocorrect="off" autocapitalize="none" type="text" name="add"/>
     <label for="add_item">Add to shopping list</label>
