@@ -1,3 +1,7 @@
+Meteor.startup(function() {
+  Session.set('justShowIncluded', false);
+});
+
 Template.editShoppingList.events({
   'keypress input[name=add]': (e, t) => {
     if (e.keyCode === 13) {
@@ -12,6 +16,9 @@ Template.editShoppingList.events({
     List.find().forEach(function(list) {
       List.update({_id: list._id}, {$set: {included: false, checked: false, extra: ''}});
     });
+  },
+  'click input[name="all-included"]': (e) => {
+    Session.set('justShowIncluded', e.toElement.checked);
   }
 });
 
@@ -48,7 +55,15 @@ Template.editShoppingList.rendered = function() {
 
 Template.editShoppingList.helpers({
   list() {
-    return List.find({});
+    const justShowIncluded = Session.get("justShowIncluded");
+    if(justShowIncluded) {
+      return List.find({included: true});
+    } else {
+      return List.find({});
+    }
+  },
+  justShowIncluded() {
+    return Session.get("justShowIncluded");
   }
 });
 
