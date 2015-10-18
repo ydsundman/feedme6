@@ -1,4 +1,5 @@
 List = new Meteor.Collection('list');
+Stores = new Meteor.Collection('stores');
 
 var perms = {
   insert: function(userId, doc) {
@@ -19,7 +20,8 @@ var deny = {
 };
 List.allow(perms);
 List.deny(deny);
-
+Stores.allow(perms);
+Stores.deny(deny);
 
 if (Meteor.isClient) {
   touchSupported = () => {
@@ -29,6 +31,7 @@ if (Meteor.isClient) {
   Meteor.startup(() => {
     Session.set('page', "SHOPPING");
     Meteor.subscribe('list');
+    Meteor.subscribe('stores');
   });
 }
 
@@ -38,6 +41,9 @@ if (Meteor.isServer) {
 
     Meteor.publish("list", function() {
       return List.find({owner: this.userId});
+    });
+    Meteor.publish("stores", function() {
+      return Stores.find({owner: this.userId});
     });
   });
 }

@@ -22,7 +22,31 @@ Template.settingsShoppingItem.events({
     e.preventDefault();
     e.stopPropagation();
   },
-  'click .delete-item': function (e, t) {
+  'click .delete-item': function (e) {
     $($(e.currentTarget).attr('data-modal')).openModal()
+  }
+});
+
+Template.settings.rendered = () => {
+  $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+};
+
+Template.settingsStores.helpers({
+  stores() {
+    return Stores.find({});
+  }
+});
+
+Template.settingsStores.events({
+  'keypress #new-store': (e, t) => {
+    if (e.keyCode === 13) {
+      var input = t.find('input[type=text]');
+      if (input.value) {
+        Stores.insert({name: input.value, owner: Meteor.userId()});
+        input.value = '';
+      }
+    }
   }
 });
