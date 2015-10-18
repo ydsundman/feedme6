@@ -8,7 +8,7 @@ Template.editShoppingList.events({
       }
     }
   },
-  'click a[name="clear-all"]': function(e) {
+  'click a[name="clear-all"]': (e) => {
     List.find().forEach(function(list) {
       List.update({_id: list._id}, {$set: {included: false, checked: false, extra: ''}});
     });
