@@ -1,3 +1,22 @@
+<template name="settings">
+  <section class="card-panel">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs red lighten-5">
+        <li class="tab col s6"><a href="#items-tab">Items</a></li>
+        <li class="tab col s6"><a class="active" href="#stores-tab">Stores</a></li>
+      </ul>
+    </div>
+    <div id="items-tab" class="col s12">
+        {{> settingsShoppingList}}
+    </div>
+    <div id="stores-tab" class="col s12">
+        {{> settingsStores}}
+    </div>
+  </div>
+  </section>
+</template>
+
 <template name="settingsShoppingList">
   <div class="input-field">
     <input id="new-item" autocorrect="off" autocapitalize="none" type="text"/>
@@ -13,7 +32,7 @@
 </template>
 
 <template name="settingsShoppingItem">
-  <a href="#!" class="name collection-item">
+  <a href="#" class="name collection-item">
     <div>
       {{name}}
       <a class="secondary-content delete-item" data-modal="#confirm-delete-{{_id}}"><i class="material-icons light-blue-text">delete</i></a>
@@ -22,11 +41,42 @@
           <p>Permanently delete <strong>{{name}}</strong></p>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-item">OK</a>
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-item">Cancel</a>
+          <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-item">OK</a>
+          <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-item">Cancel</a>
         </div>
       </div>
     </div>
   </a>
 </template>
 
+<template name="settingsStores">
+  <div class="input-field">
+    <input id="new-store" autocorrect="off" autocapitalize="none" type="text"/>
+    <label for="new-store">New Store</label>
+  </div>
+  <section class="stores">
+    <div class="collection">
+      {{#each stores}}
+        {{>settingsStore}}
+      {{/each}}
+    </div>
+  </section>
+</template>
+
+<template name="settingsStore">
+  <a href="#" class="name collection-item">
+    <div>
+      {{name}}
+        <a class="secondary-content delete-item" data-modal="#confirm-delete-store-{{_id}}"><i class="material-icons light-blue-text">delete</i></a>
+        <div id="confirm-delete-store-{{_id}}" class="modal bottom-sheet">
+            <div class="modal-content">
+                <p>Permanently delete <strong>{{name}}</strong></p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-store">OK</a>
+                <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-store">Cancel</a>
+            </div>
+        </div>
+    </div>
+  </a>
+</template>
