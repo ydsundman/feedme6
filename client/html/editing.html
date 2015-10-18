@@ -11,6 +11,7 @@
     </span>
   </div>
   <div class="input-field">
+    <i class="material-icons prefix">add_circle</i>
     <input id="add_item" autocorrect="off" autocapitalize="none" type="text" name="add"/>
     <label for="add_item">Add to shopping list</label>
   </div>
@@ -29,7 +30,7 @@
       {{name}}<span>{{#if extra}} - {{extra}}{{/if}}</span>
       <input class="inline-input hide" autocorrect="off" autocapitalize="none" type="text" name="extra"/>
       <a href="#" class="secondary-content edit-item" data-modal="#item-extra-{{_id}}">
-        <i class="material-icons  {{#if included}}teal-text text-lighten-5{{/if}}">edit</i>
+        <i class="material-icons {{#if included}}teal-text text-lighten-5{{/if}}">edit</i>
       </a>
     </div>
   </a>
