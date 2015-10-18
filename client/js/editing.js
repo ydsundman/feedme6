@@ -66,7 +66,7 @@ Template.editShoppingItem.events({
     input.classList.toggle('hide');
     span.classList.toggle('hide');
     if (inputHidden) {
-      input.value = t.data.extra;
+      input.value = t.data.extra || '';
       input.focus();
     }
 
