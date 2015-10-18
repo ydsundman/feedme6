@@ -7,6 +7,11 @@ Template.editShoppingList.events({
         input.value = '';
       }
     }
+  },
+  'click a[name="clear-all"]': function(e) {
+    List.find().forEach(function(list) {
+      List.update({_id: list._id}, {$set: {included: false, checked: false, extra: ''}});
+    });
   }
 });
 
