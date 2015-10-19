@@ -23,8 +23,11 @@
     {{#if pageIs "EDITING"}}
     {{> editShoppingList}}
     {{/if}}
-    {{#if pageIs "SETTINGS"}}
-    {{> settings}}
+    {{#if pageIs "SETTINGS_ITEMS"}}
+    {{> settingsItems}}
+    {{/if}}
+    {{#if pageIs "SETTINGS_STORES"}}
+    {{> settingsStores}}
     {{/if}}
   </div>
 </template>
@@ -33,12 +36,9 @@
 <template name="nav">
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">FeedMe</a>
-      <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-desktop" class="left hide-on-med-and-down">
-        {{> navContent}}
-      </ul>
-      <ul class="side-nav" id="mobile-menu">
+      <a href="#" class="brand-logo center">FeedMe - {{currentPage}}</a>
+      <a href="#" data-activates="mobile-menu" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+      <ul id="mobile-menu" class="side-nav">
         {{> navContent}}
       </ul>
     </div>
@@ -46,9 +46,21 @@
 </template>
 
 <template name="navContent">
-  <li class="{{#if pageIs "SHOPPING"}}active{{/if}}"><a class="shop" href="#"><i class="material-icons">shopping_cart</i></a></li>
-  <li class="{{#if pageIs "EDITING"}}active{{/if}}"><a class="edit" href="#"><i class="material-icons">edit</i></a></li>
-  <li class="{{#if pageIs "SETTINGS"}}active{{/if}}"><a class="settings" href="#"><i class="material-icons">settings</i></a></li>
+  <li class="{{#if pageIs 'SHOPPING'}}active{{/if}}"><a class="shop" href="#">Shop</a></li>
+  <li class="{{#if pageIs 'EDITING'}}active{{/if}}"><a class="edit" href="#">Edit</a></li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="settings collapsible-header {{#if pageIs 'SETTINGS'}}active{{/if}}" href="#">Settings</a>
+        <div class="collapsible-body">
+          <ul>
+            <li class="{{#if pageIs 'SETTINGS_ITEMS'}}active{{/if}}"><a href="#!" name="settings-items">Items</a></li>
+            <li class="{{#if pageIs 'SETTINGS_STORES'}}active{{/if}}"><a href="#!" name="settings-stores">Stores</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
   <li>{{> atNavButton }}</li>
 </template>
 

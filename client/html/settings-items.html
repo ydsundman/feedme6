@@ -1,0 +1,31 @@
+<template name="settingsItems">
+  <div class="input-field">
+    <input id="new-item" autocorrect="off" autocapitalize="none" type="text"/>
+    <label for="new-item">New item</label>
+  </div>
+  <section class="listItems">
+    <div class="collection">
+      {{#each list}}
+      {{> settingsItem}}
+      {{/each}}
+    </div>
+  </section>
+</template>
+
+<template name="settingsItem">
+  <a href="#" class="name collection-item">
+    <div>
+      {{name}}
+      <a class="secondary-content delete-item" data-modal="#confirm-delete-{{_id}}"><i class="material-icons">delete</i></a>
+      <div id="confirm-delete-{{_id}}" class="modal bottom-sheet">
+        <div class="modal-content">
+          <p>Permanently delete <strong>{{name}}</strong></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-item">OK</a>
+          <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-item">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </a>
+</template>

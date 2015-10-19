@@ -1,0 +1,31 @@
+<template name="settingsStores">
+  <div class="input-field">
+    <input id="new-store" autocorrect="off" autocapitalize="none" type="text"/>
+    <label for="new-store">New Store</label>
+  </div>
+  <section class="stores">
+    <div class="collection">
+      {{#each stores}}
+        {{>settingsStore}}
+      {{/each}}
+    </div>
+  </section>
+</template>
+
+<template name="settingsStore">
+  <a href="#" class="name collection-item">
+    <div>
+      {{name}}
+        <a class="secondary-content delete-item" data-modal="#confirm-delete-store-{{_id}}"><i class="material-icons">delete</i></a>
+        <div id="confirm-delete-store-{{_id}}" class="modal bottom-sheet">
+            <div class="modal-content">
+                <p>Permanently delete <strong>{{name}}</strong></p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-store">OK</a>
+                <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-store">Cancel</a>
+            </div>
+        </div>
+    </div>
+  </a>
+</template>

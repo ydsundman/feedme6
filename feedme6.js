@@ -29,7 +29,6 @@ if (Meteor.isClient) {
   };
 
   Meteor.startup(() => {
-    Session.set('page', "SHOPPING");
     Session.set('shouldShowCheckedItems', false);
     Meteor.subscribe('list');
     Meteor.subscribe('stores');
@@ -40,10 +39,10 @@ if (Meteor.isServer) {
   Meteor.startup(() => {
     console.log('Starting feedme6');
 
-    Meteor.publish("list", function() {
+    Meteor.publish('list', function() {
       return List.find({owner: this.userId});
     });
-    Meteor.publish("stores", function() {
+    Meteor.publish('stores', function() {
       return Stores.find({owner: this.userId});
     });
   });
