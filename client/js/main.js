@@ -1,5 +1,5 @@
 
-const PAGE_NAME = {SHOPPING:'Shop', EDITING:'Edit shopping list', SETTINGS_ITEMS:'Item settings', SETTINGS_STORES:'Store settings'};
+const PAGE_NAME = {SHOPPING:'Shop', EDITING:'Edit', SETTINGS_ITEMS:'Items', SETTINGS_STORES:'Stores'};
 
 Template.nav.events({
   'click .shop': (e) => {
