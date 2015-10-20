@@ -26,6 +26,14 @@ Template.settingsStores.events({
   }
 });
 
+Template.settingsStore.helpers({
+  items(storeId) {
+    let sortInfo = {};
+    sortInfo[storeId] = 1;
+    return List.find({}, {sort: sortInfo});
+  }
+});
+
 Template.settingsStore.events({
   'click a[name="store-name"]': (e,t) => {
     e.currentTarget.classList.toggle("active");
@@ -57,17 +65,20 @@ Template.storeItems.events({
   'click a[name="store-item"]': (e,t) => {
     if (item) {
       e.currentTarget.parentNode.insertBefore(item, e.currentTarget);
+      Deps.nonreactive(() => {
+        let setInfo = {};
+        const parent = $(e.currentTarget.parentNode);
+        const storeId = parent.attr('store-id');
+        parent.children().each(function(index, item) {
+          setInfo[storeId] = index;
+          List.update({_id: $(item).attr('data-id')}, {$set: setInfo});
+        })
+      });
       item.classList.remove("active");
       item = undefined;
     } else {
       e.currentTarget.classList.add("active");
       item = e.currentTarget;
     }
-  }
-});
-
-Template.storeItems.helpers({
-  items() {
-    return [{name: "one"}, {name: "two"}, {name: "three"}];
   }
 });

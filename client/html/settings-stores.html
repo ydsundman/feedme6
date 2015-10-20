@@ -29,14 +29,14 @@
         </div>
       </div>
     </a>
-    {{>storeItems}}
+    <div class="collapsible-body collection" store-id="{{_id}}">
+      {{#each items _id}}
+      {{>storeItems}}
+      {{/each}}
+    </div>
   </li>
 </template>
 
 <template name="storeItems">
-  <div class="collapsible-body collection">
-    {{#each items}}
-    <a href="#!" class="collection-item" name="store-item">{{name}}</a>
-    {{/each}}
-  </div>
+  <a href="#!" class="collection-item" name="store-item" data-id="{{_id}}">{{name}}</a>
 </template>
