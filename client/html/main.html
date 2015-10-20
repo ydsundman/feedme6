@@ -46,12 +46,12 @@
 </template>
 
 <template name="navContent">
-  <li class="{{#if pageIs 'SHOPPING'}}active{{/if}}"><a class="shop" href="#">Shop</a></li>
-  <li class="{{#if pageIs 'EDITING'}}active{{/if}}"><a class="edit" href="#">Edit</a></li>
+  <li class="{{#if pageIs 'SHOPPING'}}active{{/if}}"><a class="shop" href="#"><i class="material-icons left">shopping_cart</i>Shop</a></li>
+  <li class="{{#if pageIs 'EDITING'}}active{{/if}}"><a class="edit" href="#"><i class="material-icons left">edit</i>Edit</a></li>
   <li class="no-padding">
     <ul class="collapsible collapsible-accordion">
       <li>
-        <a class="settings collapsible-header {{#if pageIs 'SETTINGS'}}active{{/if}}" href="#">Settings</a>
+        <a class="settings collapsible-header {{#if pageIs 'SETTINGS'}}active{{/if}}" href="#"><i class="material-icons left">settings</i>Settings</a>
         <div class="collapsible-body">
           <ul>
             <li class="{{#if pageIs 'SETTINGS_ITEMS'}}active{{/if}}"><a href="#!" name="settings-items">Items</a></li>
