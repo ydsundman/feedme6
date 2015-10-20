@@ -4,28 +4,39 @@
     <label for="new-store">New Store</label>
   </div>
   <section class="stores">
-    <div class="collection">
+    <ul class="collection collapsible popout">
       {{#each stores}}
         {{>settingsStore}}
       {{/each}}
-    </div>
+    </ul>
   </section>
 </template>
 
 <template name="settingsStore">
-  <a href="#" class="name collection-item">
-    <div>
-      {{name}}
+  <li>
+    <a href="#" class="collection-item collapsible-header" name="store-name">
+      <div>
+        {{name}}
         <a class="secondary-content delete-item" data-modal="#confirm-delete-store-{{_id}}"><i class="material-icons">delete</i></a>
         <div id="confirm-delete-store-{{_id}}" class="modal bottom-sheet">
-            <div class="modal-content">
-                <p>Permanently delete <strong>{{name}}</strong></p>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-store">OK</a>
-                <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-store">Cancel</a>
-            </div>
+          <div class="modal-content">
+            <p>Permanently delete <strong>{{name}}</strong></p>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-store">OK</a>
+            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-store">Cancel</a>
+          </div>
         </div>
-    </div>
-  </a>
+      </div>
+    </a>
+    {{>storeItems}}
+  </li>
+</template>
+
+<template name="storeItems">
+  <div class="collapsible-body collection">
+    {{#each items}}
+    <a href="#!" class="collection-item" name="store-item">{{name}}</a>
+    {{/each}}
+  </div>
 </template>
