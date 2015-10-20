@@ -4,7 +4,7 @@
     <label for="new-store">New Store</label>
   </div>
   <section class="stores">
-    <ul class="collection collapsible popout">
+    <ul class="popout collapsible">
       {{#each stores}}
         {{>settingsStore}}
       {{/each}}
@@ -14,21 +14,21 @@
 
 <template name="settingsStore">
   <li>
-    <a href="#" class="collection-item collapsible-header" name="store-name">
-      <div>
+    <div class="collapsible-header">
+      <a href="#" class="" name="store-name">
         {{name}}
-        <a class="secondary-content delete-store" data-modal="#confirm-delete-store-{{_id}}"><i class="material-icons">delete</i></a>
-        <div id="confirm-delete-store-{{_id}}" class="modal bottom-sheet">
-          <div class="modal-content">
-            <p>Permanently delete <strong>{{name}}</strong></p>
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-store">OK</a>
-            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-store">Cancel</a>
-          </div>
+      </a>
+      <a class="secondary-content delete-store" data-modal="#confirm-delete-store-{{_id}}"><i class="material-icons">delete</i></a>
+      <div id="confirm-delete-store-{{_id}}" class="modal bottom-sheet">
+        <div class="modal-content">
+          <p>Permanently delete <strong>{{name}}</strong></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-store">OK</a>
+          <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-store">Cancel</a>
         </div>
       </div>
-    </a>
+    </div>
     <div class="collapsible-body collection" store-id="{{_id}}">
       {{#each items _id}}
       {{>storeItems}}

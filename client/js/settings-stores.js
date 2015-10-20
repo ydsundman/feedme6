@@ -50,7 +50,9 @@ Template.settingsStore.events({
     e.stopPropagation();
   },
   'click .delete-store': function (e) {
-    $($(e.currentTarget).attr('data-modal')).openModal()
+    e.preventDefault();
+    e.stopPropagation();
+    $($(e.currentTarget).attr('data-modal')).openModal();
   }
 });
 
