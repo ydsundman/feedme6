@@ -29,6 +29,20 @@ Template.settingsStores.events({
 Template.settingsStore.events({
   'click a[name="store-name"]': (e,t) => {
     e.currentTarget.classList.toggle("active");
+  },
+  'click .confirm-delete-store': function (e, t) {
+    Stores.remove({_id: t.data._id});
+    List.find().forEach(function(list) {
+      var unsetInfo = {};
+      unsetInfo[t.data._id] = '';
+      List.update({_id: list._id}, {$unset: unsetInfo});
+    });
+
+    e.preventDefault();
+    e.stopPropagation();
+  },
+  'click .delete-store': function (e) {
+    $($(e.currentTarget).attr('data-modal')).openModal()
   }
 });
 
