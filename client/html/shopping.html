@@ -1,4 +1,5 @@
 <template name="shopShoppingList">
+  {{> selectStore}}
   <section class="shoppingListMenu right-align">
     <span class="left">{{notYetCheckedOff}}/{{totalNumItems}}</span>
     <span class="switch">
@@ -17,6 +18,17 @@
       {{/each}}
     </ul>
   </section>
+</template>
+
+<template name="selectStore">
+  <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Select store</option>
+      {{#each stores}}
+        <option value="{{_id}}" selected="{{#if isActive _id}}selected{{/if}}">{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
 </template>
 
 <template name="shopShoppingItem">

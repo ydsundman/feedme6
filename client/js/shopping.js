@@ -1,7 +1,10 @@
 Template.shopShoppingList.helpers({
   list() {
     var query = {included: true};
-    return List.find(query);
+    let sortInfo = {};
+    let sortColumn = Session.get('storeId')? Session.get('storeId'):'name';
+    sortInfo[sortColumn] = 1;
+    return List.find(query, {sort: sortInfo});
   },
   showCheckedItems(){
     return Session.get('shouldShowCheckedItems');
@@ -22,6 +25,28 @@ Template.shopShoppingList.events({
     }
   }
 );
+
+Template.selectStore.helpers({
+  stores() {
+    return Stores.find();
+  },
+  isActive(storeId) {
+    return storeId == Session.get('storeId');
+  }
+});
+
+Template.selectStore.onRendered( () => {
+  Meteor.defer ( () => {
+      $('select').material_select();
+    }
+  )
+});
+
+Template.selectStore.events({
+  'change select' : function (e) {
+    Session.set('storeId',$(e.currentTarget).val());
+  }
+});
 
 function toggleChecked(item) {
   List.update({_id: item._id}, {$set: {checked: item.checked ? false : true}});
