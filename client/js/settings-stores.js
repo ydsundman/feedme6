@@ -45,22 +45,50 @@ Template.settingsStore.events({
       unsetInfo[t.data._id] = '';
       List.update({_id: list._id}, {$unset: unsetInfo});
     });
-
-    e.preventDefault();
-    e.stopPropagation();
   },
-  'click .delete-store': function (e) {
-    e.preventDefault();
-    e.stopPropagation();
+  'escaped-click a[name=delete-store]': function (e) {
     $($(e.currentTarget).attr('data-modal')).openModal();
+  },
+  'escaped-click a[name=edit-store-btn]': function (e, t) {
+    const span = e.currentTarget.parentNode.querySelector('a[name=store-name]');
+    const input = e.currentTarget.parentNode.querySelector('input');
+
+    const inputHidden = input.classList.contains('hide');
+    input.classList.toggle('hide');
+    span.classList.toggle('hide');
+    if (inputHidden) {
+      input.value = t.data.name || '';
+      input.focus();
+    }
+  },
+  'keypress input[name=edit-store-field]': function(e) {
+    if (e.keyCode === 13) {
+      e.currentTarget.blur();
+    }
+  },
+  'blur input[name=edit-store-field]': function(e, t) {
+    Stores.update({_id: t.data._id}, {$set: {name: e.currentTarget.value}});
+
+    const span = e.currentTarget.parentNode.querySelector('a[name=store-name]');
+    const input = e.currentTarget.parentNode.querySelector('input');
+    input.value = '';
+    input.classList.add('hide');
+    span.classList.remove('hide');
   }
+
 });
 
-Template.settingsStore.rendered = () => {
+Template.settingsStore.onRendered( () => {
   $('.collapsible').collapsible({
     accordion : true
   });
-};
+
+  $('.dont-collapse').off('click.collapse');
+  $('.dont-collapse').on('click.collapse', function(e) {
+    e.stopPropagation();
+    $(e.target).trigger('escaped-click');
+  });
+});
 
 let item;
 Template.storeItems.events({

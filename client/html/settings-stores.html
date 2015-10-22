@@ -18,14 +18,20 @@
       <a href="#" class="" name="store-name">
         {{name}}
       </a>
-      <a class="secondary-content delete-store" data-modal="#confirm-delete-store-{{_id}}"><i class="material-icons">delete</i></a>
+      <a href="#" class="secondary-content dont-collapse" name="edit-store-btn">
+        <i class="material-icons">edit</i>
+      </a>
+      <input class="inline-input hide dont-collapse" autocorrect="off" autocapitalize="none" type="text" name="edit-store-field"/>
+      <a class="secondary-content dont-collapse" name="delete-store" data-modal="#confirm-delete-store-{{_id}}">
+        <i class="material-icons">delete</i>
+      </a>
       <div id="confirm-delete-store-{{_id}}" class="modal bottom-sheet">
         <div class="modal-content">
           <p>Permanently delete <strong>{{name}}</strong></p>
         </div>
         <div class="modal-footer">
           <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-store">OK</a>
-          <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-store">Cancel</a>
+          <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat dont-collapse cancel-delete-store">Cancel</a>
         </div>
       </div>
     </div>
