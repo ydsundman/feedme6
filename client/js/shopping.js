@@ -35,11 +35,8 @@ Template.selectStore.helpers({
   }
 });
 
-Template.selectStore.onRendered( () => {
-  Meteor.defer ( () => {
-      $('select').material_select();
-    }
-  )
+Meteor.subscribe("stores", () => {
+  $('select').material_select();
 });
 
 Template.selectStore.events({
