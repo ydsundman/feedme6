@@ -1,11 +1,14 @@
 Template.settingsItems.events({
-  'keypress #new-item': (e, t) => {
+  'keypress  #new-item': function(e) {
     if (e.keyCode === 13) {
-      var input = t.find('input[type=text]');
-      if (input.value) {
-        List.insert({name: input.value, owner: Meteor.userId()});
-        input.value = '';
-      }
+      e.currentTarget.blur();
+    }
+  },
+  'blur  #new-item': function(e, t) {
+    var input = t.find('input[type=text]');
+    if (input.value) {
+      List.insert({name: input.value, owner: Meteor.userId()});
+      input.value = '';
     }
   }
 });
