@@ -35,10 +35,6 @@ Template.selectStore.helpers({
   }
 });
 
-Meteor.subscribe("stores", () => {
-  $('select').material_select();
-});
-
 Template.selectStore.events({
   'change select' : function (e) {
     Session.set('storeId',$(e.currentTarget).val());

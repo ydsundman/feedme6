@@ -22,7 +22,7 @@
 
 <template name="selectStore">
   <div class="input-field col s12">
-    <select>
+    <select class="browser-default">
       <option value="" disabled selected>Select store</option>
       {{#each stores}}
         <option value="{{_id}}" selected="{{#if isActive _id}}selected{{/if}}">{{name}}</option>
