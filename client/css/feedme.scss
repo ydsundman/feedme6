@@ -31,3 +31,8 @@ input.inline-input {
 input[type=text].inline-input:focus {
     box-shadow: none;
 }
+
+.side-padding {
+    padding-left: 15px;
+    padding-right: 15px;
+}

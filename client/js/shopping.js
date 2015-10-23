@@ -5,9 +5,15 @@ Template.shopShoppingList.helpers({
     let sortColumn = Session.get('storeId')? Session.get('storeId'):'name';
     sortInfo[sortColumn] = 1;
     return List.find(query, {sort: sortInfo});
+  }
+});
+
+Template.shoppingNav.helpers({
+  stores() {
+    return Stores.find();
   },
-  showCheckedItems(){
-    return Session.get('shouldShowCheckedItems');
+  isActive(storeId) {
+    return storeId == Session.get('storeId');
   },
   totalNumItems(){
     var query = {included: true};
@@ -16,29 +22,27 @@ Template.shopShoppingList.helpers({
   notYetCheckedOff(){
     var query = {included: true, $or: [{checked: {$exists: false}}, {checked: false}]};
     return List.find(query).fetch().length;
-  }
-});
-
-Template.shopShoppingList.events({
-    'click input[name=show-hide]': function (e) {
-      Session.set('shouldShowCheckedItems', e.toElement.checked );
-    }
-  }
-);
-
-Template.selectStore.helpers({
-  stores() {
-    return Stores.find();
   },
-  isActive(storeId) {
-    return storeId == Session.get('storeId');
+  showCheckedItems(){
+    return Session.get('shouldShowCheckedItems');
+  },
+  storeName(){
+    return Session.get('storeName')? Session.get('storeName') : 'Select Store';
   }
 });
 
-Template.selectStore.events({
-  'change select' : function (e) {
-    Session.set('storeId',$(e.currentTarget).val());
+Template.shoppingNav.events({
+  'click a[name=store-name]' : function (e) {
+    Session.set('storeId',$(e.currentTarget).attr('data-id'));
+    Session.set('storeName', $(e.currentTarget).text());
+  },
+  'click input[name=show-hide]': function (e) {
+    Session.set('shouldShowCheckedItems', e.toElement.checked );
   }
+});
+
+Template.shoppingNav.onRendered(()=>{
+  $(".dropdown-button").dropdown();
 });
 
 function toggleChecked(item) {

@@ -1,15 +1,6 @@
 <template name="shopShoppingList">
-  {{> selectStore}}
+  {{> shoppingNav}}
   <section class="shoppingListMenu right-align">
-    <span class="left">{{notYetCheckedOff}}/{{totalNumItems}}</span>
-    <span class="switch">
-      <label>
-        Hide
-        <input type="checkbox" name="show-hide" checked="{{#if showCheckedItems}}true{{/if}}">
-        <span class="lever"></span>
-        Show
-      </label>
-    </span>
   </section>
   <section class="listItems">
     <ul class="collection">
@@ -20,15 +11,32 @@
   </section>
 </template>
 
-<template name="selectStore">
-  <div class="input-field col s12">
-    <select class="browser-default">
-      <option value="" disabled selected>Select store</option>
-      {{#each stores}}
-        <option value="{{_id}}" selected="{{#if isActive _id}}selected{{/if}}">{{name}}</option>
-      {{/each}}
-    </select>
-  </div>
+<template name="shoppingNav">
+  <ul id="stores-dropdown" class="dropdown-content">
+    {{#each stores}}
+    <li class="{{#if isActive _id}}active{{/if}}"><a href="#" name="store-name" data-id="{{_id}}" class="light-blue-text">{{name}}</a></li>
+    {{/each}}
+  </ul>
+  <nav class="white">
+    <div>
+      <div class="nav-wrapper">
+        <ul class="left">
+          <li><a class="dropdown-button light-blue-text" href="#!" data-activates="stores-dropdown">{{storeName}}</a></li>
+          <li>
+            <span class="badge">{{notYetCheckedOff}}/{{totalNumItems}}</span>
+          </li>
+        </ul>
+        <div class="switch side-padding left">
+          <label>
+            Hide
+            <input type="checkbox" name="show-hide" checked="{{#if showCheckedItems}}true{{/if}}">
+            <span class="lever"></span>
+            Show
+          </label>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <template name="shopShoppingItem">
