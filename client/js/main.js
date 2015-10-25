@@ -42,7 +42,8 @@ Template.nav.helpers({
   }
 });
 
-Template.nav.rendered = () => {
+Template.nav.onRendered(() => {
+  $('.collapsible').collapsible();
   $('.button-collapse').sideNav({
     closeOnClick: true
   });
@@ -55,4 +56,4 @@ Template.nav.rendered = () => {
       belowOrigin: false, // Displays dropdown below the button
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
     });
-};
+});
