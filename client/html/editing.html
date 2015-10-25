@@ -26,7 +26,7 @@
 
 <template name="editShoppingItem">
   <a class="name collection-item {{#if included}}active{{/if}}">
-    <div>
+    <div class="overflow-auto">
       {{name}}<span>{{#if extra}} - {{extra}}{{/if}}</span>
       <input class="inline-input hide" autocorrect="off" autocapitalize="none" type="text" name="extra"/>
       <a href="#" class="secondary-content edit-item">

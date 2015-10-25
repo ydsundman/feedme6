@@ -14,22 +14,24 @@
 
 <template name="settingsItem">
   <a href="#" class="name collection-item">
-    <div>
+    <div class="overflow-auto">
       <span >{{name}}</span>
-      <a href="#" class="secondary-content" name="edit-name-btn">
-        <i class="material-icons">edit</i>
-      </a>
-      <input class="inline-input hide" autocorrect="off" autocapitalize="none" type="text" name="edit-name-field"/>
-      <a href="#" class="secondary-content delete-item" data-modal="#confirm-delete-{{_id}}"
-        ><i class="material-icons">delete</i>
-      </a>
-      <div id="confirm-delete-{{_id}}" class="modal bottom-sheet">
-        <div class="modal-content">
-          <p>Permanently delete <strong>{{name}}</strong></p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-item">OK</a>
-          <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-item">Cancel</a>
+      <div class="right">
+        <a href="#" class="secondary-content" name="edit-name-btn">
+          <i class="material-icons">edit</i>
+        </a>
+        <input class="inline-input hide" autocorrect="off" autocapitalize="none" type="text" name="edit-name-field"/>
+        <a href="#" class="secondary-content delete-item" data-modal="#confirm-delete-{{_id}}"
+          ><i class="material-icons">delete</i>
+        </a>
+        <div id="confirm-delete-{{_id}}" class="modal bottom-sheet">
+          <div class="modal-content">
+            <p>Permanently delete <strong>{{name}}</strong></p>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat confirm-delete-item">OK</a>
+            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat cancel-delete-item">Cancel</a>
+          </div>
         </div>
       </div>
     </div>
