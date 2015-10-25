@@ -1,5 +1,5 @@
 Meteor.startup(function() {
-  Session.set('justShowIncluded', false);
+  Session.set('justShowIncluded', true);
 });
 
 Template.editShoppingList.events({
