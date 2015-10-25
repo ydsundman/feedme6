@@ -27,11 +27,11 @@
 <template name="editShoppingItem">
   <a class="name collection-item {{#if included}}active{{/if}}">
     <div class="overflow-auto">
-      {{name}}<span>{{#if extra}} - {{extra}}{{/if}}</span>
-      <input class="inline-input hide" autocorrect="off" autocapitalize="none" type="text" name="extra"/>
-      <a href="#" class="secondary-content edit-item left padding-right" data-editing="false">
+      <a href="#" class="secondary-content edit-item left padding-right">
         <i class="material-icons {{#if included}}teal-text text-lighten-5{{/if}}">edit</i>
       </a>
+      {{name}}<span>{{#if extra}} - {{extra}}{{/if}}</span>
+      <input class="inline-input hide" autocorrect="off" autocapitalize="none" type="text" name="extra"/>
     </div>
   </a>
 </template>
