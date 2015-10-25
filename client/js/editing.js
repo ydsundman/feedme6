@@ -56,11 +56,9 @@ Template.editShoppingList.rendered = function() {
 Template.editShoppingList.helpers({
   list() {
     const justShowIncluded = Session.get("justShowIncluded");
-    if(justShowIncluded) {
-      return List.find({included: true});
-    } else {
-      return List.find({});
-    }
+    let sortInfo = {name:1};
+    let query = justShowIncluded? {included: true}:{};
+    return List.find(query, {sort: sortInfo});
   },
   justShowIncluded() {
     return Session.get("justShowIncluded");

@@ -15,7 +15,8 @@ Template.settingsItems.events({
 
 Template.settingsItems.helpers({
   list() {
-    return List.find({});
+    let sortInfo = {name:1};
+    return List.find({}, {sort: sortInfo});
   }
 });
 
