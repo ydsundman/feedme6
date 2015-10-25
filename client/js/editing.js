@@ -79,11 +79,13 @@ Template.editShoppingItem.events({
   'click .edit-item': function (e, t) {
     const span = e.currentTarget.parentNode.querySelector('span');
     const input = e.currentTarget.parentNode.querySelector('input');
-
-    const inputHidden = input.classList.contains('hide');
-    input.classList.toggle('hide');
-    span.classList.toggle('hide');
-    if (inputHidden) {
+    const is_editing = e.currentTarget.getAttribute('data-editing');
+    if (is_editing === "true") {
+      e.currentTarget.setAttribute('data-editing', 'false');
+    } else {
+      e.currentTarget.setAttribute('data-editing', 'true');
+      input.classList.remove('hide');
+      span.classList.add('hide');
       input.value = t.data.extra || '';
       input.focus();
     }

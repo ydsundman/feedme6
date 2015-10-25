@@ -1,5 +1,5 @@
 <template name="editShoppingList">
-  <div>
+  <div class="padding-bottom">
     <a href="#" class="waves-effect waves-light btn right" name="clear-all">Clear</a>
     <span class="switch">
       <label>
@@ -29,7 +29,7 @@
     <div class="overflow-auto">
       {{name}}<span>{{#if extra}} - {{extra}}{{/if}}</span>
       <input class="inline-input hide" autocorrect="off" autocapitalize="none" type="text" name="extra"/>
-      <a href="#" class="secondary-content edit-item">
+      <a href="#" class="secondary-content edit-item left padding-right" data-editing="false">
         <i class="material-icons {{#if included}}teal-text text-lighten-5{{/if}}">edit</i>
       </a>
     </div>
