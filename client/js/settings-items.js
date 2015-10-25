@@ -36,14 +36,10 @@ Template.settingsItem.events({
   'click a[name=edit-name-btn]': function (e, t) {
     const span = e.currentTarget.parentNode.querySelector('span');
     const input = e.currentTarget.parentNode.querySelector('input');
-
-    const inputHidden = input.classList.contains('hide');
-    input.classList.toggle('hide');
-    span.classList.toggle('hide');
-    if (inputHidden) {
-      input.value = t.data.name || '';
-      input.focus();
-    }
+    input.classList.remove('hide');
+    span.classList.add('hide');
+    input.value = t.data.name || '';
+    input.focus();
 
     e.stopPropagation();
     e.preventDefault();
@@ -54,12 +50,12 @@ Template.settingsItem.events({
     }
   },
   'blur input[name=edit-name-field]': function(e, t) {
-    List.update({_id: t.data._id}, {$set: {name: e.currentTarget.value}});
-
-    const span = e.currentTarget.parentNode.querySelector('span');
-    const input = e.currentTarget.parentNode.querySelector('input');
+    const input = e.currentTarget;
+    List.update({_id: t.data._id}, {$set: {name: input.value}});
     input.value = '';
     input.classList.add('hide');
+
+    const span = e.currentTarget.parentNode.querySelector('span');
     span.classList.remove('hide');
   }
 });
