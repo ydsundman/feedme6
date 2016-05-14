@@ -1,0 +1,19 @@
+{
+  "name": "feedme6",
+  "version": "1.0.0",
+  "description": "shopping list app!",
+  "main": "feedme6.js",
+  "scripts": {
+    "deploy": "DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy feedme.yds.se --settings prod.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ydsundman/feedme6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ydsundman/feedme6/issues"
+  },
+  "homepage": "https://github.com/ydsundman/feedme6#readme"
+}
